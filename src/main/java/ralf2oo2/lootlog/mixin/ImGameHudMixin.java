@@ -49,12 +49,9 @@ public class ImGameHudMixin extends DrawContext {
             int y = 2 + height * i;
 
             int width = minecraft.textRenderer.getWidth(logLines.get(i).getLineString());
-            int windowWidth = scaledResolution.getScaledWidth() - width;
-            int unscaledX = windowWidth - width - 2 + logLines.get(i).getXOffset();
+            int windowWidth = (int) ((scaledResolution.getScaledWidth() / LootLogConfig.config.scale) - 2 - width);
 
-            int scaledX = Math.round(unscaledX / LootLogConfig.config.scale);
-
-            drawTextWithShadow(minecraft.textRenderer, logLines.get(i).getLineString(), scaledX, y, logLines.get(i).getColor());
+            drawTextWithShadow(minecraft.textRenderer, logLines.get(i).getLineString(), windowWidth + logLines.get(i).getXOffset(), y, logLines.get(i).getColor());
         }
     }
 }
