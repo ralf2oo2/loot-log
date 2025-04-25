@@ -32,14 +32,18 @@ public class LogLine {
         if(animating){
             int textWidth = Minecraft.class.cast(FabricLoader.getInstance().getGameInstance()).textRenderer.getWidth(getLineString());
             long time = System.currentTimeMillis();
-            if(time - prevAnimationUpdate >= 10){
-                int i = ((textWidth/2 + xOffset) / 10) -9;
-                if(xOffset != textWidth){
-                    xOffset += i;
+            if(time - this.prevAnimationUpdate >= 10){
+                float progress = 1f - ((float)xOffset / textWidth);
+                int i = Math.max(1, (int)(progress * 20));
+
+                xOffset += i;
+
+                if(xOffset > textWidth){
+                    animating = false;
+                    System.out.println("stopped animating");
                 }
-            }
-            if(xOffset > textWidth){
-                animating = false;
+                this.prevAnimationUpdate = time;
+                System.out.println(xOffset + " : " + i);
             }
         }
     }
