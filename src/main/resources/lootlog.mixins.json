@@ -8,7 +8,9 @@
   "server": [
   ],
   "client": [
-    "ClientPlayerEntityMixin"
+    "ClientPlayerEntityMixin",
+    "PlayerEntityMixin",
+    "ImGameHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

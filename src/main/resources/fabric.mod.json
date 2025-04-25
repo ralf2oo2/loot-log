@@ -22,6 +22,7 @@
       "ralf2oo2.lootlog.events.init.InitListener"
     ],
     "stationapi:event_bus_client": [
+      "ralf2oo2.lootlog.events.ingame.TickEvent"
     ],
     "stationapi:event_bus_server": [
     ]
