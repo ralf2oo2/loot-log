@@ -25,6 +25,12 @@
       "ralf2oo2.lootlog.events.ingame.TickEvent"
     ],
     "stationapi:event_bus_server": [
+    ],
+    "gcapi3": [
+      "ralf2oo2.lootlog.config.LootLogConfig"
+    ],
+    "gcapi3:factory_provider": [
+      "ralf2oo2.lootlog.config.LootLogConfigFactories"
     ]
   },
   "mixins": [
