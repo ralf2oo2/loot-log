@@ -1,8 +1,10 @@
 package ralf2oo2.lootlog.mixin;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.util.ScreenScaler;
 import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;
@@ -38,7 +40,12 @@ public class ImGameHudMixin extends DrawContext {
         for(int i = 0; i < logLines.size(); i++){
             int height = 9;
             int y = 2 + height * i;
+            BlockRenderManager blockRenderManager = ((WorldRendererAccessor)minecraft.worldRenderer).getBlockRenderManager();
             drawTextWithShadow(minecraft.textRenderer, logLines.get(i).getLineString(), -logLines.get(i).getXOffset(), y, logLines.get(i).getColor());
+            GL11.glPushMatrix();
+            //GL11.glTranslatef(0f, height, 0f);
+            blockRenderManager.render(Block.SAND, 0, 1f);
+            GL11.glPopMatrix();
         }
     }
 

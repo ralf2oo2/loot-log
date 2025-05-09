@@ -10,7 +10,8 @@
   "client": [
     "ClientPlayerEntityMixin",
     "PlayerEntityMixin",
-    "ImGameHudMixin"
+    "ImGameHudMixin",
+    "WorldRendererAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
